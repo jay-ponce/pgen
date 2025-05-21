@@ -6,36 +6,37 @@ This Python program generates random **usernames**, **passwords**, and **PINs** 
 
 ## 🔧 Features (Current)
 
-- ✅ **Random Username Generator**  
+✅ **Random Username Generator**  
   - Generates usernames composed of random characters, optionally mixed with a randomly generated number.  
   - Two types: one using random characters, another using adjective+noun+number approach.
 
-- ✅ **Random Password Generator**  
+✅ **Random Password Generator**  
   - Generates a password of user-defined length using ASCII characters between 33 (`!`) and 125 (`}`), including special characters.
 
-- ✅ **Random PIN Generator**  
+✅ **Random PIN Generator**  
   - Generates a numeric PIN (4-digit by default, adjustable by input length).
 
 ---
 
 ## 🛠 Planned Features
 
-- [ ] Allow users to choose which items to generate (username, password, PIN, or any combination).
-- [ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).
-- [ ] Enable configuration of username style (e.g., readable vs. random).
-- [ ] Add persistent storage (e.g., saving credentials to a file securely).
-- [ ] GUI or Web Interface (long-term goal).
+[ ] Allow users to choose which items to generate (username, password, PIN, or any combination).  
+[ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).  
+[ ] Enable configuration of username style (e.g., readable vs. random).  
+[ ] Add persistent storage (e.g., saving credentials to a file securely).  
+[ ] GUI or Web Interface (long-term goal).
 
 ---
 
 ## 🖥 How to Run
 
 1. Make sure Python 3 is installed.
+
 2. Run the script:
    ```bash
    python your_script_name.py
    ```
-
+   
 3. Follow the prompts to input desired lengths for the username, password, and PIN.
 
 ---
@@ -55,8 +56,8 @@ Generated PIN: 4582
 ---
 
 ## 📚 Dependencies
-	•	random (built-in)
-	•	string (built-in)
+	• random (built-in)
+	• string (built-in)
 
 ---
 
