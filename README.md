@@ -41,9 +41,9 @@ This tool is designed with **privacy, security, and transparency** in mind.
 
 ## 🛠 Planned Features
 
-[ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).
-[ ] Add persistent storage (e.g., saving credentials to a file securely).
-[ ] GUI or Web Interface (long-term goal).
+- [ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).
+- [ ] Add persistent storage (e.g., saving credentials to a file securely).
+- [ ] GUI or Web Interface (long-term goal).
 
 ---
 
