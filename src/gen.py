@@ -2,6 +2,7 @@
 import string
 import random
 import requests
+from functools import lru_cache
 
 
 class Generator:
@@ -35,6 +36,7 @@ class Generator:
             choice = random.choice([char.lower(), char.upper()])
         return choice
 
+    @lru_cache(maxsize=32)
     def fetch_words(self, length):
         pattern = '?' * length
         response = requests.get(
@@ -64,8 +66,8 @@ class Generator:
         return True
 
     def generate_human_readable_username(self, length):
+        words = self.fetch_words(length)
         for _ in range(20):  # Try up to 20 times to find a readable one
-            words = self.fetch_words(length)
             if not words:
                 raise ValueError(f"No words of length {length} found.")
 
