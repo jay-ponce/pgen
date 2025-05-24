@@ -41,16 +41,20 @@ This tool is designed with **privacy, security, and transparency** in mind.
 
 ## 🛠 Planned Features
 
-[ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).  
-[ ] Enable configuration of username style (e.g., readable vs. random).  
-[ ] Add persistent storage (e.g., saving credentials to a file securely).  
+[ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).
+[ ] Add persistent storage (e.g., saving credentials to a file securely).
 [ ] GUI or Web Interface (long-term goal).
 
 ---
 
 ## 🖥 How to Run
 
-### Option 1: Fully Interactive
+You can run the credential generator in two ways: interactively or with command-line flags.
+
+### 🔹 Option 1: Fully Interactive Mode
+
+
+Run the script without any flags:
 
 ```
 python main.py
@@ -58,10 +62,33 @@ python main.py
 
 You’ll be asked whether you want to generate a username, password, and/or PIN. If you say yes to any, you’ll be prompted for the desired length.
 
-### Option 2: Command-Line Arguments
+```
+Do you want to generate a username? (y/n): y
+Do you want to generate a password? (y/n): y
+Do you want to generate a PIN? (y/n): n
+How long do you want your username: 10
+How long do you want your password: 16
+```
+
+This is a quick and guided way to generate one or more credentials manually.
+
+### 🔹 Option 2: Command-Line Flags
+
+You can bypass the prompts and specify everything directly:
 
 ```
-python main.py userlen=8 passlen=20
+python main.py --userlen=8 --passlen=16 --pinlen=4
+```
+
+This generates:
+	•	A username of length 8
+	•	A password of length 16
+	•	A numeric PIN of length 4
+
+
+You can generate only what you need:
+```
+python main.py --userlen=12 --passlen=20
 ```
 
 Only generates the username and password with the specified lengths. PIN is skipped unless specified.
@@ -71,39 +98,58 @@ Accepted Arguments:
 	•	passlen=<int> — Length of the password.
 	•	pinlen=<int> — Length of the PIN.
 
+### 🔹 Optional: Username Style
+
+You can also control the username format:
+
+```
+--userstyle=readable    # Generates a human-friendly username (e.g., BraveTiger42)
+--userstyle=random      # Generates a fully random string (default behavior)
+```
+
+Used with:
+
+```
+python main.py --userlen=10 --userstyle=readable
+```
+
+### 📋 Available Flags
+| 🔧 Flag                  | 📄 Description                                       |
+|:-------------------------|:----------------------------------------------------|
+| `--userlen <int>`        | Length of the username                              |
+| `--userstyle <style>`    | Username style: `readable` or `random`              |
+| `--passlen <int>`        | Length of the password                              |
+| `--pinlen <int>`         | Length of the numeric PIN                           |
+
 ---
 ## 📌 Example Output
 
 ```
-$ python main.py userlen=7 pinlen=3
+$ python main.py --userlen=11 --userstyle=readable --passlen=12
 
 --- Generated Output ---
-Generated F.Username: v2XpNMi
-Generated human-readable username: OB1oq8UY
-Generated PIN: 158
+Generated human-readable username: unrAvell1ng
+Generated Password: M`mSCv,4WlK'
 
 $ python main.py
-
-Do you want to generate a username? (y/n): y  
+Do you want to generate a username? (y/n): y
+Do you want to generate a password? (y/n): y
+Do you want to generate a PIN? (y/n): n
 How long do you want your username: 10
-
-Do you want to generate a password? (y/n): y  
 How long do you want your password: 16
 
-Do you want to generate a PIN? (y/n): n  
-
 --- Generated Output ---
-Generated F.Username: Ab1xK9pLm3
-Generated human-readable username: BraveTiger42
-Generated Password: &A!x9Ld#sW@q2V!
+Generated F.Username: 3A010ruiS1
+Generated Password: }mw:Gm5|9/k]p&{w
 ```
 
 ---
 
 ## 📚 Dependencies
-	• random (built-in)
-	• string (built-in)
-	• sys (built-in)
+    •  argparse (built-in)
+	•  random (built-in)
+	•  string (built-in)
+	•  requests (for readable usernames)
 
 ---
 
