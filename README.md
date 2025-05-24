@@ -22,21 +22,25 @@ This tool is designed with **privacy, security, and transparency** in mind.
 
 ## 🔧 Features (Current)
 
+✅ **Selective Credential Generation**
+
+  - Generate only the credentials you want — username, password, or PIN — via command-line arguments or prompts.
+  - Skips prompts entirely if you supply arguments explicitly.
+
 ✅ **Random Username Generator**  
   - Generates usernames composed of random characters, optionally mixed with a randomly generated number.  
-  - Two types: one using random characters, another using adjective+noun+number approach.
+  - Two types: one using random characters, another using adjective+noun+number randomly.
 
 ✅ **Random Password Generator**  
   - Generates a password of user-defined length using ASCII characters between 33 (`!`) and 125 (`}`), including special characters.
 
 ✅ **Random PIN Generator**  
-  - Generates a numeric PIN (4-digit by default, adjustable by input length).
+  - Generates numeric PINs of a user-defined length
 
 ---
 
 ## 🛠 Planned Features
 
-[ ] Allow users to choose which items to generate (username, password, PIN, or any combination).  
 [ ] Add options for character types (e.g., include/exclude digits, special characters, uppercase).  
 [ ] Enable configuration of username style (e.g., readable vs. random).  
 [ ] Add persistent storage (e.g., saving credentials to a file securely).  
@@ -46,27 +50,52 @@ This tool is designed with **privacy, security, and transparency** in mind.
 
 ## 🖥 How to Run
 
-1. Make sure Python 3 is installed.
+### Option 1: Fully Interactive
 
-2. Run the script:
-   ```bash
-   python your_script_name.py
-   ```
-   
-3. Follow the prompts to input desired lengths for the username, password, and PIN.
+```
+python main.py
+```
+
+You’ll be asked whether you want to generate a username, password, and/or PIN. If you say yes to any, you’ll be prompted for the desired length.
+
+### Option 2: Command-Line Arguments
+
+```
+python main.py userlen=8 passlen=20
+```
+
+Only generates the username and password with the specified lengths. PIN is skipped unless specified.
+
+Accepted Arguments:
+	•	userlen=<int> — Length of the username.
+	•	passlen=<int> — Length of the password.
+	•	pinlen=<int> — Length of the PIN.
 
 ---
 ## 📌 Example Output
 
 ```
-How long do you want your username: 12
-How long do you want your password: 16
-How long do you want your PIN: 4
+$ python main.py userlen=7 pinlen=3
 
-Generated F.Username: abcdxyzuvw123
-Generated L.Username: J8kF2pX9UzGw
+--- Generated Output ---
+Generated F.Username: v2XpNMi
+Generated human-readable username: OB1oq8UY
+Generated PIN: 158
+
+$ python main.py
+
+Do you want to generate a username? (y/n): y  
+How long do you want your username: 10
+
+Do you want to generate a password? (y/n): y  
+How long do you want your password: 16
+
+Do you want to generate a PIN? (y/n): n  
+
+--- Generated Output ---
+Generated F.Username: Ab1xK9pLm3
+Generated human-readable username: BraveTiger42
 Generated Password: &A!x9Ld#sW@q2V!
-Generated PIN: 4582
 ```
 
 ---
@@ -74,6 +103,7 @@ Generated PIN: 4582
 ## 📚 Dependencies
 	• random (built-in)
 	• string (built-in)
+	• sys (built-in)
 
 ---
 
