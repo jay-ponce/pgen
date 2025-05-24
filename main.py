@@ -55,7 +55,8 @@ def main():
             print("Generated human-readable username:",
                   gen.generate_human_readable_username(args.userlen))
         else:
-            print("Generated F.Username:", gen.generate_username(args.userlen))
+            print("Generated random username:",
+                  gen.generate_username(args.userlen))
     if generate_pass:
         print("Generated Password:", gen.generate_password(
             args.passlen
