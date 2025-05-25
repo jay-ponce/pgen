@@ -1,5 +1,5 @@
 import pytest
-from gen import Generator  # adjust path as needed
+from gen import Generator
 from unittest.mock import patch
 
 
